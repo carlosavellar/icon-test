@@ -5,10 +5,10 @@ import * as api from './../api/character';
 function* getCharacter() {
   try {
     const results = yield call(api.getCharacter);
-    debugger;
+
     yield put(
       actions.getCharacterSuccess({
-        items: results.data.results,
+        items: results.results,
       })
     );
     console.log(results);

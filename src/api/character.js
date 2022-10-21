@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const getCharacter = () => {
-  return axios.get('/users', {
+  return axios.get('/character', {
     withCredentials: false,
     params: {
       limit: 1000,
