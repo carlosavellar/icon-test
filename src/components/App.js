@@ -5,22 +5,24 @@ import { CharacterList } from './CharacterList';
 import { getCharacterRequest, Types } from './../actions/character';
 
 function App(props) {
-  const [character, setCharacter] = useState([]);
+  debugger;
+  const [char, setChar] = useState([]);
 
   const loadCharacters = () => {
     // setCharacter(props.getCharacterRequest);
   };
 
-  props.getCharacterRequest();
+  // props.getCharacterRequest();
 
   useEffect(() => {
     loadCharacters();
+    props.getCharacterRequest();
   }, [loadCharacters]);
 
   return (
     <div className="App">
       <header className="App-header"></header>
-      <CharacterList />
+      <CharacterList />- {props.character.items.length} -
     </div>
   );
 }
