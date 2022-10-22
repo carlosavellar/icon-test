@@ -2,31 +2,25 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 import { CharacterList } from './CharacterList';
-import { getCharacterRequest, Types } from './../actions/character';
+import { getCharacterRequest, getCharacterSuccess, Types } from './../actions/character';
 
 function App(props) {
-  debugger;
-  const [char, setChar] = useState([]);
-
-  const loadCharacters = () => {
-    // setCharacter(props.getCharacterRequest);
-  };
-
-  // props.getCharacterRequest();
+  const [chars, setChars] = useState([]);
 
   useEffect(() => {
-    loadCharacters();
     props.getCharacterRequest();
-  }, [loadCharacters]);
+    setChars(props.character.items);
+  }, []);
 
   return (
     <div className="App">
       <header className="App-header"></header>
-      <CharacterList />- {props.character.items.length} -
+      <CharacterList characters={props.character.items} />- {chars.length} + <div>{props.character.items.length}</div>
     </div>
   );
 }
 
 export default connect(({ character }) => ({ character }), {
   getCharacterRequest,
+  getCharacterSuccess,
 })(App);

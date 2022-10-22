@@ -8,10 +8,10 @@ function* getCharacter() {
 
     yield put(
       actions.getCharacterSuccess({
-        items: results.results,
+        items: results.data.results,
       })
     );
-    console.log(results);
+    console.log(Array.isArray(results.data.results));
   } catch (err) {
     throw new Error('Motha fucka error');
   }

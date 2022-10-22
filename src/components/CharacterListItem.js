@@ -1,9 +1,5 @@
 import React from 'react';
 
-export const CharacterListItem = () => {
-  return (
-    <div>
-      <h1>Character list item</h1>
-    </div>
-  );
+export const CharacterListItem = (props) => {
+  return <li>{props.charItem.name}</li>;
 };

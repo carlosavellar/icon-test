@@ -1,12 +1,15 @@
 import React from 'react';
 import { CharacterListItem } from './CharacterListItem';
 
-export const CharacterList = () => {
+export const CharacterList = (props) => {
   return (
     <div>
-      <h1>
-        <CharacterListItem />
-      </h1>
+      <ul>
+        {console.log(props.characters, 'CharactersList')}
+        {props.characters.map((item, index) => {
+          return <CharacterListItem charItem={item} key={index} />;
+        })}
+      </ul>
     </div>
   );
 };
