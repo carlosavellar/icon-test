@@ -5,13 +5,13 @@ import * as api from './../api/character';
 function* getCharacter() {
   try {
     const results = yield call(api.getCharacter);
-    debugger;
+
     yield put(
       actions.getCharacterSuccess({
         items: results.data.results,
       })
     );
-    console.log(results);
+    console.log(Array.isArray(results.data.results));
   } catch (err) {
     throw new Error('Motha fucka error');
   }

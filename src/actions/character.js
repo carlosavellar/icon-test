@@ -1,6 +1,7 @@
 export const Types = {
-  GET_CHARACTERS_REQUEST: 'users/get_users_request',
-  GET_CHARACTERS_SUCCESS: 'users/get_users_success',
+  GET_CHARACTERS_REQUEST: 'character',
+  GET_CHARACTERS_SUCCESS: 'character_success',
+  FILTER_CHARACTERS: 'FILTER',
 };
 
 export const getCharacterRequest = () => ({
@@ -12,6 +13,15 @@ export const getCharacterSuccess = ({ items }) => {
     type: Types.GET_CHARACTERS_SUCCESS,
     payload: {
       items,
+    },
+  };
+};
+
+export const filterCharacterRequest = ({ text }) => {
+  return {
+    type: Types.FILTER_CHARACTERS,
+    payload: {
+      text,
     },
   };
 };

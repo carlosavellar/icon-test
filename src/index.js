@@ -15,7 +15,7 @@ import axios from 'axios';
 const sagaMiddleware = createSagaMiddleware();
 
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = 'http://rem-rest-api.herokuapp.com/api';
+axios.defaults.baseURL = 'https://rickandmortyapi.com/api';
 
 const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
 

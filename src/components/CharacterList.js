@@ -1,12 +1,13 @@
 import React from 'react';
 import { CharacterListItem } from './CharacterListItem';
-
-export const CharacterList = () => {
+import Grid from '@mui/material/Grid';
+import { Item } from './../utils/UI';
+export const CharacterList = (props) => {
   return (
-    <div>
-      <h1>
-        <CharacterListItem />
-      </h1>
-    </div>
+    <Grid container spacing={2}>
+      {props.characters.map((item, index) => {
+        return <CharacterListItem charItem={item} key={index} />;
+      })}
+    </Grid>
   );
 };
