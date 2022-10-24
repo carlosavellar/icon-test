@@ -17,34 +17,28 @@ const bull = (
 
 export const CharacterListItem = (props) => {
   return (
-    <Card container sx={{ minWidth: 275 }}>
-      <CardContent>
-        <Grid item xs={4}>
-          <Item>
-            <Grid container>
-              <Grid sx={{ maxWidth: 345 }}>
-                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                  <CardMedia component="img" height="194" image={props.charItem.image} alt="Paella dish" />
-                </Typography>
-              </Grid>
-              <Grid>
-                <CardContent>
-                  <Typography variant="">{props.charItem.name}</Typography>
-                  <Typography variant="" component="div">
-                    Gender: {props.charItem.gender}
-                  </Typography>
-                  <Typography variant="" component="div">
-                    Status: {props.charItem.status}
-                  </Typography>
-                  <Typography variant="" component="div">
-                    Species: {props.charItem.species}
-                  </Typography>
-                </CardContent>
-              </Grid>
-            </Grid>
-          </Item>
+    <Grid item xs={3} md={3}>
+      <Grid container>
+        <Grid item sm={6}>
+          <Typography sx={{ fontSize: 10 }} color="text.secondary" gutterBottom>
+            <CardMedia component="img" height="134" image={props.charItem.image} alt="Paella dish" />
+          </Typography>
         </Grid>
-      </CardContent>
-    </Card>
+        <Grid item sm={6}>
+          <CardContent>
+            <Typography variant="">{props.charItem.name}</Typography>
+            <Typography variant="" component="p">
+              Gender: {props.charItem.gender}
+            </Typography>
+            <Typography variant="" component="p">
+              Status: {props.charItem.status}
+            </Typography>
+            <Typography variant="" component="p">
+              Species: {props.charItem.species}
+            </Typography>
+          </CardContent>
+        </Grid>
+      </Grid>
+    </Grid>
   );
 };
