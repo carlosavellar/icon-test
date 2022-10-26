@@ -14,11 +14,7 @@ function SearchForm(props) {
   const [searchText, setSearchText] = useState('');
 
   const handlerSearchText = (e) => {
-    // e.preventDefault();
-    // console.log(e.target.value);
     setSearchText(e.target.value);
-    // props.onSearchChar(searchText);
-    // props.filterCharacterRequest(searchText);
   };
 
   useEffect(() => {
@@ -37,17 +33,7 @@ function SearchForm(props) {
     >
       <FormControl variant="standard">
         <label htmlFor="input-with-icon-adornment">Search</label>
-        <input
-          type="text"
-          value={searchText}
-          onChange={(e) => handlerSearchText(e)}
-          //   startAdornment={
-          //     <InputAdornment position="start">
-          //       <AccountCircle />
-          //     </InputAdornment>
-          //   }
-          autoFocus
-        />
+        <input type="text" value={searchText} onChange={(e) => handlerSearchText(e)} autoFocus />
       </FormControl>
     </Box>
   );

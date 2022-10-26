@@ -11,29 +11,23 @@ import SearchForm from './SearchForm';
 function App(props) {
   const [chars, setChars] = useState([]);
 
-  useState(() => {
+  useEffect(() => {
     props.getCharacterRequest();
   }, []);
 
   const loadChars = () => {
-    setChars(props.character.items);
+    if (chars.length === 0) {
+      setChars(props.character.items);
+    }
   };
 
-  const logChars = () => {
-    // debugger;
-  };
-
-  console.log(chars, 'chars');
   useEffect(() => {
     loadChars();
-    setChars(props.character.items);
-    logChars();
-  }, []);
+  }, [loadChars]);
 
   const handlerFilterCharacter = (text) => {
     let loadChars = [];
     props.character.items.filter((item) => {
-      // console.log(text, name.toLowerCase().includes(text.toLowerCase()));
       if (item.name.toLowerCase().includes(text.toLowerCase())) {
         loadChars.push(item);
       }
