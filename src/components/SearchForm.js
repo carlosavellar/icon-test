@@ -16,14 +16,14 @@ function SearchForm(props) {
   const handlerSearchText = (e) => {
     // e.preventDefault();
     // console.log(e.target.value);
-    // // setSearchText(e.target.value);
+    setSearchText(e.target.value);
     // props.onSearchChar(searchText);
     // props.filterCharacterRequest(searchText);
   };
 
-  //   useEffect(() => {
-  //     props.onSearchChar(searchText);
-  //   }, [searchText]);
+  useEffect(() => {
+    props.onSearchChar(searchText);
+  }, [searchText]);
 
   return (
     <Box

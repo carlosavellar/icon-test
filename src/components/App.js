@@ -11,23 +11,34 @@ import SearchForm from './SearchForm';
 function App(props) {
   const [chars, setChars] = useState([]);
 
-  const loadChars = () => {
+  useState(() => {
     props.getCharacterRequest();
-    setChars((prevState) => ({ prevState: props.character.items }));
-    console.log(chars, 'chars');
+  }, []);
+
+  const loadChars = () => {
+    setChars(props.character.items);
   };
 
+  const logChars = () => {
+    // debugger;
+  };
+
+  console.log(chars, 'chars');
   useEffect(() => {
     loadChars();
-    console.log(chars, 'chars');
+    setChars(props.character.items);
+    logChars();
   }, []);
 
   const handlerFilterCharacter = (text) => {
-    const searchedChars = props.character.items.filter(({ name }) => {
-      console.log(text, name.toLowerCase().includes(text.toLowerCase()));
-      return name.toLowerCase().includes(text.toLowerCase());
+    let loadChars = [];
+    props.character.items.filter((item) => {
+      // console.log(text, name.toLowerCase().includes(text.toLowerCase()));
+      if (item.name.toLowerCase().includes(text.toLowerCase())) {
+        loadChars.push(item);
+      }
     });
-    setChars(searchedChars);
+    setChars(loadChars);
   };
 
   return (
@@ -40,7 +51,7 @@ function App(props) {
           <Grid container rowSpacing={1} component="div">
             <SearchForm container onSearchChar={handlerFilterCharacter} />
           </Grid>
-          <CharacterList characters={props.character.items} />
+          <CharacterList characters={chars} />
         </Grid>
       </Container>
     </div>
